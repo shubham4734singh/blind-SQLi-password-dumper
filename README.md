@@ -1,5 +1,5 @@
 # 🔐 Blind SQL Injection Tool (TrackingId Cookie-Based)
-
+# If Payloads not just change the payloads
 This Python script automates **blind SQL injection attacks** using the `TrackingId` cookie header, primarily targeting labs like those on **PortSwigger Web Security Academy**.
 
 It supports:
